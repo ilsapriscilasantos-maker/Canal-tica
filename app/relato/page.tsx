@@ -2,14 +2,14 @@
 import { useState } from "react";
 
 export default function Relato() {
-  const [step, setStep] = useState(1);
-  const [identificacao, setIdentificacao] = useState("");
-  const [nome, setNome] = useState("");
-  const [cpf, setCpf] = useState("");
-  const [hospital, setHospital] = useState("");
-  const [tipoOcorrencia, setTipoOcorrencia] = useState<string[]>([])
-  const [descricao, setDescricao] = useState("");
-  const [enviado, setEnviado] = useState(false);
+  const [step, setStep] = useState<number>(1);
+  const [identificacao, setIdentificacao] = useState<string>("");
+  const [nome, setNome] = useState<string>("");
+  const [cpf, setCpf] = useState<string>("");
+  const [hospital, setHospital] = useState<string>("");
+  const [tipoOcorrencia, setTipoOcorrencia] = useState<string[]>([]);
+  const [descricao, setDescricao] = useState<string>("");
+  const [enviado, setEnviado] = useState<boolean>(false);
 
   function nextStep() {
     setStep((prev) => prev + 1);
@@ -19,7 +19,7 @@ export default function Relato() {
     setStep((prev) => prev - 1);
   }
 
-  function toggleTipo(valor) {
+  function toggleTipo(valor: string) {
     setTipoOcorrencia((prev) =>
       prev.includes(valor)
         ? prev.filter((item) => item !== valor)
@@ -75,9 +75,7 @@ export default function Relato() {
           <>
             {step === 1 && (
               <div>
-                <h2 className="text-lg font-semibold mb-4">
-                  Etapa 1 – Identificação
-                </h2>
+                <h2 className="text-lg font-semibold mb-4">Etapa 1 – Identificação</h2>
 
                 <div className="flex flex-col gap-3">
                   <label>
@@ -131,9 +129,7 @@ export default function Relato() {
 
             {step === 2 && (
               <div>
-                <h2 className="text-lg font-semibold mb-4">
-                  Etapa 2 – Hospital
-                </h2>
+                <h2 className="text-lg font-semibold mb-4">Etapa 2 – Hospital</h2>
 
                 <select
                   value={hospital}
@@ -166,9 +162,7 @@ export default function Relato() {
 
             {step === 3 && (
               <div>
-                <h2 className="text-lg font-semibold mb-4">
-                  Etapa 3 – Tipo de Ocorrência
-                </h2>
+                <h2 className="text-lg font-semibold mb-4">Etapa 3 – Tipo de Ocorrência</h2>
 
                 {[
                   "Dificuldade operacional / processo",
@@ -206,9 +200,7 @@ export default function Relato() {
 
             {step === 4 && (
               <div>
-                <h2 className="text-lg font-semibold mb-4">
-                  Etapa 4 – Descrição
-                </h2>
+                <h2 className="text-lg font-semibold mb-4">Etapa 4 – Descrição</h2>
 
                 <textarea
                   rows={5}
@@ -237,9 +229,7 @@ export default function Relato() {
 
             {step === 5 && (
               <div>
-                <h2 className="text-lg font-semibold mb-4">
-                  Confirmação
-                </h2>
+                <h2 className="text-lg font-semibold mb-4">Confirmação</h2>
 
                 <div className="flex justify-between">
                   <button
