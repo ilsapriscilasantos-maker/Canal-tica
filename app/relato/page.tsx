@@ -7,7 +7,7 @@ export default function Relato() {
   const [nome, setNome] = useState("");
   const [cpf, setCpf] = useState("");
   const [hospital, setHospital] = useState("");
-  const [tipoOcorrencia, setTipoOcorrencia] = useState([]);
+  const [tipoOcorrencia, setTipoOcorrencia] = useState<string[]>([]);
   const [descricao, setDescricao] = useState("");
   const [enviado, setEnviado] = useState(false);
 
